@@ -1,0 +1,90 @@
+<div class="container pokemon-container">
+    <h1 class="pokemon-title">Pokémon</h1>
+
+    <h4 class="pokemon-subtitle">Alta de Pokémon</h4>
+    <div class="col-sm-12 col-md-6 col-lg-4 pokemon-form">
+        <label class="pokemon-label">* Obligatorio</label>
+        <br><br>
+        <p>
+            <label class="pokemon-label">Numero de Pokedex *</label>
+            <input type="number" class="form-control pokemon-input" placeholder="Ingresa el numero de Pokedex" [(ngModel)]="pokemon.numero" min="1" max="10000" required (change)="verificarCamposRequeridos()"/>
+            <!-- "maxlength" se establece en 5 para limitar a 5 dígitos (10,000) -->
+        </p>
+        <p>
+            <label class="pokemon-label">Nombre *</label>
+            <input type="text" class="form-control pokemon-input" placeholder="Ingresa el nombre" [(ngModel)]="pokemon.nombre" maxlength="15" required (change)="verificarCamposRequeridos()"/>
+            <!-- "maxlength" se establece en 15 para limitar a 15 caracteres -->
+        </p>
+        <p>
+            <label class="pokemon-label">Descripción *</label>
+            <textarea name="" id="" type="text" class="form-control pokemon-input" placeholder="Ingresa una descripción" [(ngModel)]="pokemon.descripcion" cols="30" rows="5" maxlength="400" required (change)="verificarCamposRequeridos()"></textarea>
+            <!-- "maxlength" se establece en 255 para limitar a 255 caracteres -->
+        </p>
+        
+
+        <p>
+            <label class="pokemon-label">Tipo Principal: *</label>
+            <select id="tipo1" [(ngModel)]="pokemon.tipo1" class="form-control pokemon-select" (change)="verificarCamposRequeridos()" required>
+                <option value="" disabled  selected>Selecciona una opción</option> <!-- Opción vacía con texto -->
+                <option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.tipo }}</option>
+            </select>
+        </p>
+        
+        <p>
+            <label class="pokemon-label">Tipo Secundario: (Opcional)</label>
+            <select id="tipo2" [(ngModel)]="pokemon.tipo2" class="form-control pokemon-select">
+                <option value="No tiene" selected>No tiene</option> <!-- Opción vacía con texto -->
+                <option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.tipo }}</option>
+            </select>
+        </p>
+
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary pokemon-btn" (click)="insertarPokemon()" [disabled]="!botonesHabilitados">Insertar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning pokemon-btn" (click)="updatePokemon()" [disabled]="!botonesHabilitados">Actualizar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger pokemon-btn" (click)="deletePokemon(pokemon.id)" [disabled]="!botonesHabilitados">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <div class="container">
+        <table class="table pokemon-table">
+            <thead>
+                <th>No.Pokedex</th>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                <th>Tipo Principal</th>
+                <th>Tipo Secundario</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pokemon of pokemones">
+                    <td>{{ pokemon.numero }}</td>
+                    <td>{{ pokemon.nombre }}</td>
+                    <td class="desc">{{ pokemon.descripcion }}</td>
+                    <td>
+                        <select [(ngModel)]="pokemon.tipo1" class="form-control pokemon-select" disabled="">
+                            <option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.tipo }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select [(ngModel)]="pokemon.tipo2" class="form-control pokemon-select" disabled="">
+                            <option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.tipo }}</option>
+                        </select>
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary pokemon-btn" (click)="selectPokemon(pokemon)">Seleccionar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 200px; /* Ajusta el tamaño del logo según sea necesario */
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff0000; /* Color rojo, similar al de la Pokédex clásica */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 20px;
+}
+
+.btn-start {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcb05; /* Color amarillo, similar al de la Pokédex clásica */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-start:hover {
+    background-color: #ffc200; /* Color amarillo ligeramente más oscuro al pasar el ratón */
+}

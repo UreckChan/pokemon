@@ -1,0 +1,90 @@
+<div class="container pokemon-container">
+    <h1 class="pokemon-title">Tipos de Pokémon</h1>
+
+    <h4 class="pokemon-subtitle">Alta de Tipos</h4>
+
+    <div class="col-sm-4 pokemon-form">
+            <label class="pokemon-label">* Obligatorio</label>
+            <br><br>
+        <p>
+            <label class="pokemon-label">Tipo*</label>
+            <input type="text" class="form-control pokemon-input" placeholder="Ingresa el nombre del tipo" [(ngModel)]="tipo.tipo" maxlength="10" required (change)="verificarCamposTipo()"/>
+        </p>
+        <p>
+            <label class="pokemon-label">Descripción*</label>
+            <textarea type="text" class="form-control pokemon-input" name="" id="" placeholder="Ingresa una descripción" cols="30" rows="5" [(ngModel)]="tipo.descripcion" maxlength="255" required (change)="verificarCamposTipo()"></textarea>
+        </p>
+
+        <p>
+            <label class="pokemon-label">Selecciona la Fortaleza: *</label>
+            <select [(ngModel)]="tipo.fortaleza" class="form-control pokemon-select" required (change)="verificarCamposTipo()">
+                <option value="No tiene" selected>No tiene</option> <!-- Opción vacía con texto -->
+                <option *ngFor="let tipo of tipos" [value]="tipo.tipo">{{ tipo.tipo }}</option>
+            </select>
+        </p>
+        
+        <p>
+            <label class="pokemon-label">Selecciona la Debilidad: *</label>
+            <select [(ngModel)]="tipo.debilidad" class="form-control pokemon-select" required (change)="verificarCamposTipo()">
+                <option value="No tiene" selected>No tiene</option> <!-- Opción vacía con texto -->
+                <option *ngFor="let tipo of tipos" [value]="tipo.tipo">{{ tipo.tipo }}</option>
+            </select>
+        </p>
+        
+        <p>
+            <label class="pokemon-label">Selecciona tipo Neutral: *</label>
+            <select [(ngModel)]="tipo.neutral" class="form-control pokemon-select" required (change)="verificarCamposTipo()">
+                <option value="No tiene" selected>No tiene</option> <!-- Opción vacía con texto -->
+                <option *ngFor="let tipo of tipos" [value]="tipo.tipo">{{ tipo.tipo }}</option>
+            </select>
+        </p>
+        
+
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary pokemon-btn" (click)="insertarTipo()" [disabled]="!botonesTipoHabilitados">Insertar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning pokemon-btn" (click)="updateTipo()" [disabled]="!botonesTipoHabilitados">Actualizar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger pokemon-btn" (click)="deleteTipo(tipo.id)" [disabled]="!botonesTipoHabilitados">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- Media Pokébola -->
+
+
+    <br>
+
+    <div class="row">
+    <table class="col-12 table pokemon-table">
+        <thead>
+            <th>Tipo</th>
+            <th>Descripción</th>
+            <th>Fortalezas</th>
+            <th>Debilidades</th>
+            <th>Neutral</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tipo of tipos">
+                <td>{{ tipo.tipo }}</td>
+                <td>{{ tipo.descripcion }}</td>
+                <td>{{ tipo.fortaleza }}</td>
+                <td>{{ tipo.debilidad }}</td>
+                <td>{{ tipo.neutral }}</td>
+                
+                <td>
+                    <button type="button" class="btn btn-primary pokemon-btn" (click)="selectTipo(tipo)">Seleccionar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div> 
+</div>

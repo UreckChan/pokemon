@@ -1,0 +1,22 @@
+.pokemon-nav {
+    background-color: #f3f3f3; /* Color de fondo */
+    border: 2px solid #ffcb05; /* Borde amarillo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+}
+
+.nav-item {
+    margin-right: 10px; /* Espaciado entre elementos */
+}
+
+.nav-link {
+    color: #333; /* Color de texto */
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.nav-icon {
+    width: 24px; /* Ancho de la imagen */
+    height: 24px; /* Altura de la imagen */
+    margin-right: 5px; /* Espaciado entre la imagen y el texto */
+}

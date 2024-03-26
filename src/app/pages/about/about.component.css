@@ -1,0 +1,83 @@
+.pokemon-container {
+    background-color: #f3f3f3; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.pokemon-title {
+    color: #e51400; /* Rojo característico de Pokémon */
+    text-align: center;
+}
+
+.pokemon-subtitle {
+    color: #0066cc; /* Azul característico de Pokémon */
+    margin-top: 30px;
+}
+
+.pokemon-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-list li {
+    font-size: 1.2em;
+    color: #000; /* Texto negro */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; /* Centrar verticalmente los elementos */
+}
+
+.pokemon-list img {
+    width: 30px; /* Ajusta el ancho según sea necesario */
+    height: 30px; /* Ajusta la altura según sea necesario */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+
+
+
+.pokeball {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: whitesmoke;
+    border: 10px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pokeball::before{
+    content: "";
+    position: absolute;
+    background: red;
+    width: 100%;
+    height: 50%;
+}
+
+.pokeball::after{
+    content: "";
+    position: absolute;
+    top: calc(50% - 5px);
+    width: 100%;
+    height: 50%;
+    background: whitesmoke;
+    border-top: 10px solid;
+}
+
+.pokeball-centro {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 10px solid ;
+    border-radius: 50%;
+    top: calc(50% - 20px - 4px);
+    left: calc(50% - 20px - 4px);
+    z-index: 10;
+    box-shadow: 0 0 0 2px black;
+    background: white;
+
+}

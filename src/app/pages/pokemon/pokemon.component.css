@@ -1,0 +1,86 @@
+.pokemon-container {
+    background-color: #f3f3f3; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.pokemon-title {
+    color: #e51400; /* Rojo característico de Pokémon */
+    text-align: center;
+}
+
+.pokemon-subtitle {
+    color: #0066cc; /* Azul característico de Pokémon */
+    margin-top: 20px;
+}
+
+.pokemon-form {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.pokemon-label {
+    color: #000; /* Texto negro */
+    font-weight: bold;
+}
+
+.pokemon-input {
+    border: 1px solid #999; /* Borde gris */
+}
+
+.pokemon-select {
+    border: 1px solid #999; /* Borde gris */
+}
+
+.desc {
+    overflow-y: scroll;
+}
+
+.pokemon-table {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #999; /* Borde gris */
+}
+
+.pokemon-table th{
+    padding: 8px; /* Espaciado interno */
+    text-align: center; /* Alineación centrada */
+
+}
+.pokemon-table td {
+    padding: 8px; /* Espaciado interno */
+    text-align: center; /* Alineación centrada */
+    max-height: 15px;
+}
+
+.pokemon-table th:first-child,
+.pokemon-table td:first-child {
+    border-right: 1px solid #999; /* Borde derecho en la primera columna */
+}
+
+.pokemon-table th:last-child,
+.pokemon-table td:last-child {
+    border-left: 1px solid #999; /* Borde izquierdo en la última columna */
+}
+
+.pokemon-table th,
+.pokemon-table td:not(:last-child) {
+    border-bottom: 1px solid #999; /* Borde inferior en todas las celdas excepto en la última columna */
+}
+
+.pokemon-table th {
+    background-color: #f3f3f3; /* Fondo gris claro para las celdas del encabezado */
+}
+
+.pokemon-btn {
+    background-color: #ffcb05; /* Amarillo característico de Pokémon */
+    color: #000; /* Texto negro */
+    margin-right: 5px;
+}
+
+.pokemon-btn:hover {
+    background-color: #ffc200; /* Amarillo ligeramente más oscuro al pasar el ratón */
+}
+
+

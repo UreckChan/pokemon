@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokemon-c3f5f": {
+      "hosting": {
+        "pokemon": [
+          "pokemon-c3f5f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokemon-c3f5f"
+  }
+}
