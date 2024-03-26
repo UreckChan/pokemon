@@ -106,22 +106,9 @@
           }
         },
         "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {
-            "version": 2
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "pokemon:build:production",
-              "serveTarget": "pokemon:serve:production"
-            },
-            "development": {
-              "buildTarget": "pokemon:build:development",
-              "serveTarget": "pokemon:serve:development"
-            }
-          },
-          "defaultConfiguration": "production"
+          "builder": "angular-cli-ghpages:deploy"
         }
+        
       }
     }
   }
