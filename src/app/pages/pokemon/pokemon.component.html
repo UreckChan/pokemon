@@ -7,24 +7,24 @@
         <br><br>
         <p>
             <label class="pokemon-label">Numero de Pokedex *</label>
-            <input type="number" class="form-control pokemon-input" id="numero" placeholder="Ingresa el numero de Pokedex" [(ngModel)]="pokemon.numero" min="1" max="10000" required (change)="verificarCamposRequeridos()"/>
+            <input type="number" class="form-control pokemon-input" placeholder="Ingresa el numero de Pokedex" [(ngModel)]="pokemon.numero" min="1" max="10000"  (change)="verificarCamposRequeridos()"/>
             <!-- "maxlength" se establece en 5 para limitar a 5 dígitos (10,000) -->
         </p>
         <p>
             <label class="pokemon-label">Nombre *</label>
-            <input type="text" class="form-control pokemon-input" id="nombre" placeholder="Ingresa el nombre" [(ngModel)]="pokemon.nombre" maxlength="15" required (change)="verificarCamposRequeridos()"/>
+            <input type="text" class="form-control pokemon-input" placeholder="Ingresa el nombre" [(ngModel)]="pokemon.nombre" maxlength="15"   (change)="verificarCamposRequeridos()"/>
             <!-- "maxlength" se establece en 15 para limitar a 15 caracteres -->
         </p>
         <p>
             <label class="pokemon-label">Descripción *</label>
-            <textarea name="" id="" type="text" class="form-control pokemon-input" id="descripcion" placeholder="Ingresa una descripción" [(ngModel)]="pokemon.descripcion" cols="30" rows="5" maxlength="400" required (change)="verificarCamposRequeridos()"></textarea>
+            <textarea  type="text" class="form-control pokemon-input" placeholder="Ingresa una descripción" [(ngModel)]="pokemon.descripcion" cols="30" rows="5" maxlength="400" (change)="verificarCamposRequeridos()"></textarea>
             <!-- "maxlength" se establece en 255 para limitar a 255 caracteres -->
         </p>
         
 
         <p>
             <label class="pokemon-label">Tipo Principal: *</label>
-            <select id="tipo1" [(ngModel)]="pokemon.tipo1" class="form-control pokemon-select" (change)="verificarCamposRequeridos()" required>
+            <select [(ngModel)]="pokemon.tipo1" class="form-control pokemon-select" (change)="verificarCamposRequeridos()" required>
                 <option value="" disabled  selected>Selecciona una opción</option> <!-- Opción vacía con texto -->
                 <option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.tipo }}</option>
             </select>
@@ -32,7 +32,7 @@
         
         <p>
             <label class="pokemon-label">Tipo Secundario: (Opcional)</label>
-            <select id="tipo2" [(ngModel)]="pokemon.tipo2" class="form-control pokemon-select">
+            <select [(ngModel)]="pokemon.tipo2" class="form-control pokemon-select">
                 <option value="No tiene" selected>No tiene</option> <!-- Opción vacía con texto -->
                 <option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.tipo }}</option>
             </select>

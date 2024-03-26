@@ -3,6 +3,7 @@ import { Pokemon } from '../../models/pokemon';
 import { PokemonService } from '../../services/pokemon.service';
 import { Tipo } from '../../models/tipo';
 import { TipoService } from '../../services/tipo.service';
+import { or } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-pokemon',
@@ -47,29 +48,33 @@ export class PokemonComponent implements OnInit {
  this.pokemon.tipo1 = '';
  this.pokemon.tipo2 = 'No tiene';
 
+
   }
   
 
 
   // Función para verificar si todos los campos requeridos están llenos
   verificarCamposRequeridos() {
-    this.botonesHabilitados = !!this.pokemon.numero && !!this.pokemon.nombre && !!this.pokemon.descripcion && !!this.pokemon.tipo1;
-    if(Number(this.pokemon.numero.trim()) > 0 && Number(this.pokemon.numero.trim()) < 10000){
-      alert("Inserte un valor mayor a 0");
-      this.botonesHabilitados = false;
+    switch(true) {
+        case (!!this.pokemon.numero && !!this.pokemon.nombre && !!this.pokemon.descripcion && !!this.pokemon.tipo1):
+            this.botonesHabilitados = true;
+            break;
+        case (Number(this.pokemon.numero) < 1 || Number(this.pokemon.numero) > 10000):
+            alert("Inserte un valor mayor a 0 y menor a 10000 para el número de Pokedex");
+            this.botonesHabilitados = false;
+            break;
+        case (this.pokemon.nombre.trim().length === 0):
+            alert("Inserte un nombre válido");
+            this.botonesHabilitados = false;
+            break;
+        case (this.pokemon.descripcion.trim().length === 0):
+            alert("Inserte una descripción válida");
+            this.botonesHabilitados = false;
+            break;
     }
-    if(this.pokemon.nombre.trim() == " "){
-      alert("Inserte un nombre valido");
-      this.botonesHabilitados = false;
-    }
-    if(this.pokemon.descripcion.trim() == ""){
-      alert("Inserte una descripción valida");
-      this.botonesHabilitados = false;
-    }
+}
 
-    
 
-  }
 
   insertarPokemon() {
     this.pokemonService.createPokemon(this.pokemon);

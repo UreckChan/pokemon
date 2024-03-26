@@ -34,16 +34,21 @@ export class TipoComponent implements OnInit {
 
   // Función para verificar si todos los campos requeridos del tipo están llenos
   verificarCamposTipo() {
-    this.botonesTipoHabilitados = !!this.tipo.tipo && !!this.tipo.descripcion && !!this.tipo.fortaleza && !!this.tipo.debilidad && !!this.tipo.neutral;
-  
-    if(this.tipo.tipo.trim() == " "){
-      alert("Inserte un nombre valido");
-      this.botonesTipoHabilitados = false;
-    }
-    if(this.tipo.descripcion.trim() == " "){
-      alert("Inserte una descripción valida");
-      this.botonesTipoHabilitados = false;
-    }
+
+    switch(true) {
+      case (!!this.tipo.tipo && !!this.tipo.descripcion && !!this.tipo.fortaleza && !!this.tipo.debilidad && !!this.tipo.neutral):
+          this.botonesTipoHabilitados = true;
+          break;
+      case (this.tipo.tipo.trim().length === 0):
+        alert("Inserte un nombre valido");
+        this.botonesTipoHabilitados = false;
+          break;
+      case (this.tipo.descripcion.trim().length === 0):
+        alert("Inserte una descripción valida");
+        this.botonesTipoHabilitados = false;
+          break;
+
+  }
   
   }
 
